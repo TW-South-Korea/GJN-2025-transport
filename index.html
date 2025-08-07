@@ -3,31 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TW-Thailand – Road Transport Guide 2025</title>
-  <link rel="manifest" href="assets/manifest.json" />
+  <title>GJN 2025 Road Transport Guide</title>
+  <link rel="manifest" href="/assets/manifest.json" />
+  <link rel="icon" href="/assets/icons/icon-192x192.png" />
+  <meta name="theme-color" content="#ffffff"/>
   <script>
-    window.addEventListener('beforeinstallprompt', e => {
-      e.preventDefault();
-      deferredPrompt = e;
-      const installBtn = document.getElementById('install');
-      installBtn.style.display = 'inline-block';
-      installBtn.addEventListener('click', () => {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then(() => {
-          deferredPrompt = null;
-        });
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
       });
-    });
+    }
   </script>
 </head>
 <body>
-  <h1>TW-Thailand – Road Transport Guide 2025</h1>
-  <p>Welcome to the road transport guide.<br>This app is installable as a PWA.</p>
-  <button id="install" style="display:none;">Install App</button>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js');
-    }
-  </script>
+  <h1>Bangkok / Phuket Road Transport Guide</h1>
+  <p>Welcome to the GJN 2025 Road Transport Guide.</p>
 </body>
 </html>
