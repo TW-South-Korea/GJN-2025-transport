@@ -1,16 +1,28 @@
 --- index.html
-+++ index-restored.html
-@@ -7,7 +7,7 @@
++++ index-pwa-final.html
+@@ -5,7 +5,7 @@
+ <head>
+ <meta charset="utf-8"/>
  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 -<title>Thailand Road Transport Guide 2025</title>
-+<title>GJN 2025 Road Transport Guide</title>
++  <title>Thailand Road Transport Guide 2025</title>
+ <style>
+   body {
+     font-family: sans-serif;
+@@ -80,6 +80,7 @@
+     td:nth-of-type(6)::before { content: "Notes"; }
+   }
+ </style>
 +  <link rel="manifest" href="/assets/manifest.json" />
-+  <meta name="theme-color" content="#ffffff"/>
-+  <script>
-+    if ('serviceWorker' in navigator) {
-+      window.addEventListener('load', () => {
-+        navigator.serviceWorker.register('/service-worker.js');
-+      });
-+    }
-+  </script>
+  <meta name="theme-color" content="#ffffff"/>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+  </script>
+
  </head>
+ <body>
+ <h1>Thailand Road Transport Guide 2025</h1>
