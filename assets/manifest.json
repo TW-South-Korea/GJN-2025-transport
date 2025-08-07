@@ -1,7 +1,8 @@
 {
   "name": "TW-Thailand \u2013 Road Transport Guide 2025",
   "short_name": "Transport Guide",
-  "start_url": "./",
+  "start_url": "/GJN-2025-road-transport-guide/index.html",
+  "scope": "/GJN-2025-road-transport-guide/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0b3d91",
