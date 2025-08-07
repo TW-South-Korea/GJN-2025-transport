@@ -1,13 +1,10 @@
 {
-  "id": "/GJN-2025-road-transport-guide/index.html",
   "name": "TW-Thailand \u2013 Road Transport Guide 2025",
   "short_name": "Transport Guide",
-  "description": "PWA for Thai airport and road transfers \u2013 Bangkok & Phuket",
   "start_url": "/GJN-2025-road-transport-guide/index.html",
-  "scope": "/GJN-2025-road-transport-guide/",
   "display": "standalone",
-  "theme_color": "#0b3d91",
   "background_color": "#ffffff",
+  "theme_color": "#0b3d91",
   "orientation": "portrait",
   "icons": [
     {
