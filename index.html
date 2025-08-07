@@ -2,58 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <base href="/GJN-2025-road-transport-guide/">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TW-Thailand – Road Transport Guide 2025</title>
-
-  <link rel="icon" href="assets/icons/icon-192x192.png" />
-  <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png" />
   <link rel="manifest" href="assets/manifest.json" />
-  <meta name="theme-color" content="#0b3d91" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="application-name" content="Transport Guide" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="Transport Guide" />
-  <meta name="description" content="TW-Thailand – Road Transport Guide 2025. Access transport guidance and maps for Thailand.">
-  <meta property="og:title" content="TW-Thailand – Road Transport Guide 2025" />
-  <meta property="og:description" content="A handy web-based guide for road transport in Thailand" />
-  <meta property="og:image" content="assets/icons/icon-512x512.png" />
-  <meta property="og:url" content="https://tw-thailand.github.io/GJN-2025-road-transport-guide/" />
-</head>
-
-<body>
-  <h1>TW-Thailand – Road Transport Guide 2025</h1>
-  <p>Welcome to the road transport guide. This app is installable as a PWA.</p>
-  <button id="install-btn" hidden>Install App</button>
-
   <script>
-    let deferredPrompt;
-    const installBtn = document.getElementById('install-btn');
-
-    window.addEventListener('beforeinstallprompt', (e) => {
+    window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       deferredPrompt = e;
-      installBtn.hidden = false;
-
+      const installBtn = document.getElementById('install');
+      installBtn.style.display = 'inline-block';
       installBtn.addEventListener('click', () => {
         deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('PWA installed');
-          } else {
-            console.log('PWA install dismissed');
-          }
+        deferredPrompt.userChoice.then(() => {
           deferredPrompt = null;
         });
       });
     });
-
+  </script>
+</head>
+<body>
+  <h1>TW-Thailand – Road Transport Guide 2025</h1>
+  <p>Welcome to the road transport guide.<br>This app is installable as a PWA.</p>
+  <button id="install" style="display:none;">Install App</button>
+  <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js', { scope: './' })
-        .then((reg) => {
-          console.log('Service worker registered.', reg);
-        });
+      navigator.serviceWorker.register('./service-worker.js');
     }
   </script>
 </body>
