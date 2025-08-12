@@ -10,79 +10,57 @@
 <link href="/GJN-2025-road-transport/assets/icons/icon-192x192.png" rel="icon" type="image/png"/>
 <link href="/GJN-2025-road-transport/assets/icons/icon-192x192.png" rel="apple-touch-icon"/>
 <style>
-  body {
-    font-family: sans-serif;
-    background: #f5f5f5;
-    margin: 0;
-    padding: 1em;
-  }
-  h1 {
-    text-align: center;
-    font-size: 1.5em;
-    margin: 0.5em 0 1em;
-  }
-  details {
-    margin-bottom: 1em;
-    background: white;
-    border-radius: 8px;
-    padding: 1em;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-  summary {
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: auto;
-    word-wrap: break-word;
-  }
-  th, td {
-    padding: 0.5em;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-    vertical-align: top;
-    font-size: 0.9em;
-  }
-  th {
-    background: #eaeaea;
-  }
-  td {
-    word-break: break-word;
-  }
-  @media screen and (max-width: 600px) {
-    table, thead, tbody, th, td, tr {
-      display: block;
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      padding: 1em;
     }
-    thead tr {
-      display: none;
+    h1 {
+      text-align: center;
     }
-    tr {
-      margin-bottom: 1em;
+    details {
+      margin-bottom: 1.5em;
+      background: white;
+      border-radius: 8px;
+      padding: 1em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    td {
-      border: none;
-      position: relative;
-      padding-left: 50%;
-    }
-    td::before {
-      position: absolute;
-      top: 0;
-      left: 0.5em;
-      width: 45%;
-      white-space: nowrap;
+    summary {
+      font-size: 1.2em;
       font-weight: bold;
+      cursor: pointer;
     }
-    td:nth-of-type(1)::before { content: "Provider"; }
-    td:nth-of-type(2)::before { content: "Price (BAHT)"; }
-    td:nth-of-type(3)::before { content: "Price (AU)"; }
-    td:nth-of-type(4)::before { content: "WhatsApp"; }
-    td:nth-of-type(5)::before { content: "Vehicle"; }
-    td:nth-of-type(6)::before { content: "Notes"; }
-  }
-</style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    th, td {
+      padding: 0.5em;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    th {
+      background: #eaeaea;
+    }
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      td {
+        padding-left: 1em;
+        padding-top: 0.5em;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+      }
+    }
+  </style>
 </head>
 <body>
 <h1>Thailand Road Transport Guide 2025</h1>
