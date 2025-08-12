@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="theme-color" content="#0b3d91"/>
   <title>TW-Thailand – Road Transport Guide 2025</title>
-  <link rel="manifest" href="assets/manifest.json">
+  <link rel="manifest" href="assets/manifest.json" />
+  <script>
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const installBtn = document.getElementById('install');
+      installBtn.style.display = 'inline-block';
+      installBtn.addEventListener('click', () => {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(() => {
+          deferredPrompt = null;
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <h1>TW-Thailand – Road Transport Guide 2025</h1>
-  <p>Welcome to the road transport guide.<br/>This app is installable as a PWA.</p>
-
+  <p>Welcome to the road transport guide.<br>This app is installable as a PWA.</p>
+  <button id="install" style="display:none;">Install App</button>
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(function (registration) {
-            console.log('ServiceWorker registration successful with scope:', registration.scope);
-          }, function (err) {
-            console.log('ServiceWorker registration failed:', err);
-          });
-      });
+      navigator.serviceWorker.register('./service-worker.js');
     }
   </script>
 </body>
