@@ -1,4 +1,4 @@
-# 🚐 TW-Thailand – Road Transport Guide 2025
+# 🚐 Thailand Road Transport Guide 2025
 
 This repository contains a mobile-friendly, colour-coded, and collapsible reference guide for airport transfers and road transport arrangements across Bangkok and Phuket for your 2025 Thailand trip.
 
@@ -6,7 +6,7 @@ It provides pricing, vehicle types, provider details, direct booking links, and 
 
 ## ✅ Live Site
 Once deployed via GitHub Pages, access the live guide here:  
-**https://tw-thailand.github.io/GJN-2025-road-transport/**
+**https://thailand-2025.github.io/road-transport-guide/**
 
 ## ✨ Features
 - Collapsible sections by city (Bangkok and Phuket)  
