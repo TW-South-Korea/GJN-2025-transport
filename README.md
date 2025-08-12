@@ -7,8 +7,6 @@ It provides pricing, vehicle types, provider details, direct booking links, and 
 ## ✅ Live Site
 
 Once deployed via GitHub Pages, access the live guide here:  
-**https://thailand-2025.github.io/road-transport-guide/**
-
 **https://tw-thailand.github.io/GJN-2025-road-transport/**
 
 ## ✨ Features
