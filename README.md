@@ -11,8 +11,6 @@ Once deployed via GitHub Pages, access the live guide here:
 
 **https://tw-thailand.github.io/GJN-2025-road-transport/**
 
-**https://tw-thailand.github.io/GJN-2025-road-transport-guide/**
-
 ## ✨ Features
 
 * Collapsible sections by city (Bangkok and Phuket)
