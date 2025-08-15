@@ -60,10 +60,18 @@
         text-align: left;
       }
     }
-  </style>
+  
+/* === Header visibility fix (desktop + app) === */
+thead { display: table-header-group !important; }
+tbody { display: table-row-group !important; }
+tr { display: table-row !important; }
+th, td { display: table-cell !important; }
+th { position: static !important; clip: auto !important; height: auto !important; width: auto !important; overflow: visible !important; font-weight: bold; }
+
+</style>
 </head>
 <body>
-<h1>🚐 Thailand – Road Transport Guide 2025</h1>
+<h1>Thailand Road Transport Guide 2025</h1>
 <details><summary>🚐 Bangkok</summary>
 <details><summary>Suvarnabhumi Airport ➔ Grande Centre Point Hotel Ratchadamri</summary>
 <table><thead><tr><th>Provider</th><th>Price (BAHT)</th><th>Price (AU)</th><th>WhatsApp</th><th>Vehicle</th><th>Notes</th></tr></thead>
