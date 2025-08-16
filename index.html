@@ -74,6 +74,38 @@
   td > * { max-width: 55%; }
 }
 
+
+/* --- Mobile refinements for long 'Notes' cells --- */
+@media (max-width: 600px) {
+  td[data-label="Notes"] {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  td[data-label="Notes"]::before {
+    margin-bottom: 0.35rem;
+  }
+  td[data-label="Notes"] > * { max-width: 100%; }
+  .notes-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6; /* show ~6 lines by default */
+    overflow: hidden;
+    word-break: break-word;
+  }
+  .notes-toggle {
+    display: inline-block;
+    margin-top: 0.35rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    background: #f7f7f7;
+  }
+  td[data-label="Notes"].notes-expanded .notes-clamp {
+    -webkit-line-clamp: unset;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -108,5 +140,33 @@
 </tbody></table>
 </details>
 </details>
+
+<script>
+(function() {
+  function enhanceNotes() {
+    var cells = document.querySelectorAll('td[data-label="Notes"]');
+    cells.forEach(function(td) {
+      if (td.dataset.enhanced === "1") return;
+      var text = td.textContent.trim();
+      if (!text) return;
+      td.innerHTML = '<div class="notes-clamp"></div><button class="notes-toggle" aria-expanded="false" type="button">Show more</button>';
+      td.querySelector('.notes-clamp').textContent = text;
+      td.dataset.enhanced = "1";
+      var btn = td.querySelector('.notes-toggle');
+      btn.addEventListener('click', function() {
+        var expanded = td.classList.toggle('notes-expanded');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        btn.textContent = expanded ? 'Show less' : 'Show more';
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', enhanceNotes);
+  } else {
+    enhanceNotes();
+  }
+})();
+</script>
+
 </body>
 </html>
