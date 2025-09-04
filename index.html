@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
+<meta content="#0b3d91" name="theme-color"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>🚐 South Korea – Transport Guide 2025</title>
+<title>🚆 Korea Transport Guide 2025</title>
 <link href="/GJN-2025-transport/assets/manifest.json" rel="manifest"/>
 <link href="/GJN-2025-transport/assets/icons/icon-192x192.png" rel="icon" type="image/png"/>
 <link href="/GJN-2025-transport/assets/icons/icon-192x192.png" rel="apple-touch-icon"/>
@@ -106,41 +106,274 @@
   }
 }
 
+
+/* === Key/Value layout inside cells === */
+.kv { display:inline-flex; align-items:baseline; gap:0.25rem; flex-wrap:nowrap; white-space:nowrap; }
+.kv .k { min-width:0; font-weight:600; } /* fixed label width for alignment */
+.kv .sep { opacity: 0.75; }
+.kv .v { flex:0 0 auto; }
+@media (max-width: 600px) {
+  td::before { content: none !important; } /* prevent duplicate labels on mobile */
+  .kv .k { min-width:0; font-weight:600; }
+  td { padding: 0.45rem 0.6rem; }
+}
+td[data-label="Duration"] .v,
+td[data-label="Fare Each (¥)"] .v,
+td[data-label="Departure Time"] .v,
+td[data-label="Arrival Time"] .v { flex:0 0 auto; }
+
+/* === Desktop: align column headings across all tables & wrap content to fit === */
+@media (min-width: 601px) {
+  table.fixed { table-layout: fixed; width: 100%; }
+  table.fixed th, table.fixed td { vertical-align: top; }
+  table.fixed th { text-align: left; }
+
+  /* Consistent column widths across every table (8 columns) */
+  table.fixed th:nth-child(1), table.fixed td:nth-child(1) { width: 12%; }  /* Departure Date */
+  table.fixed th:nth-child(2), table.fixed td:nth-child(2) { width: 16%; }  /* From (Departure) */
+  table.fixed th:nth-child(3), table.fixed td:nth-child(3) { width: 18%; }  /* To (Destination) */
+  table.fixed th:nth-child(4), table.fixed td:nth-child(4) { width: 11%; }  /* Departure Time */
+  table.fixed th:nth-child(5), table.fixed td:nth-child(5) { width: 11%; }  /* Arrival Time */
+  table.fixed th:nth-child(6), table.fixed td:nth-child(6) { width: 9%; }   /* Duration */
+  table.fixed th:nth-child(7), table.fixed td:nth-child(7) { width: 18%; }  /* Details */
+  table.fixed th:nth-child(8), table.fixed td:nth-child(8) { width: 5%; }   /* Fare Each (¥) */
+
+  /* Keep "Heading : Value" inline but allow natural wrapping within the cell */
+  .kv { display: inline-flex; align-items: baseline; gap: 0.35rem; flex-wrap: wrap; white-space: normal; }
+  .kv .v { word-break: break-word; }
+  .kv .sep { opacity: 0.8; }
+}
+
+
+
+  .kv .v { overflow-wrap: anywhere; word-break: break-word; }
+  .kv .sep { opacity: 0.9; }
+}
+
+
+
+/* --- Mobile readability fix for Index A tables --- */
+@media (max-width: 600px) {
+  details { padding: 0.75rem; }
+  table { width: 100%; border-collapse: collapse; }
+  thead { display: none !important; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  tr { margin: 0 0 1rem 0; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; overflow: hidden; }
+  td { padding: 0.65rem 0.9rem; border: none !important; border-bottom: 1px solid #f0f0f0 !important; }
+  td:last-child { border-bottom: none !important; }
+  td > strong { display: block; margin-bottom: 0.25rem; font-weight: 700; }
+}
+
+\n
+/* Label separators by viewport */
+@media (min-width: 601px) {
+  td > strong::after { content: " — "; opacity: 0.8; }
+}
+@media (max-width: 600px) {
+  td > strong::after { content: ":"; }
+}
+\n\n
+/* Label separators fix */
+td > strong::after { content: ": "; }
+
+@media (min-width: 601px) {
+  td > strong::after { content: ": "; }
+}
+@media (max-width: 600px) {
+  td > strong::after { content: ":"; }
+}
+\n\n
+/* Desktop: hide inline labels to keep columns aligned; Mobile: show labels */
+@media (min-width: 601px) {
+  td > strong { display: none !important; }
+}
+@media (max-width: 600px) {
+  td > strong { display: block !important; }
+}
+\n
+
+@media (min-width: 601px) {
+  table.fixed { table-layout: fixed; width: 100%; }
+  table.fixed th, table.fixed td { vertical-align: top; text-align: left; }
+
+  /* Consistent column widths across every table (7 columns) */
+  table.fixed th:nth-of-type(1), table.fixed td:nth-of-type(1) { width: 12% !important; } /* Departure Date */
+  table.fixed th:nth-of-type(2), table.fixed td:nth-of-type(2) { width: 26% !important; } /* From (Departure) */
+  table.fixed th:nth-of-type(3), table.fixed td:nth-of-type(3) { width: 26% !important; } /* To (Destination) */
+  table.fixed th:nth-of-type(4), table.fixed td:nth-of-type(4) { width: 10% !important; } /* Departure Time */
+  table.fixed th:nth-of-type(5), table.fixed td:nth-of-type(5) { width: 10% !important; } /* Arrival Time */
+  table.fixed th:nth-of-type(6), table.fixed td:nth-of-type(6) { width: 11% !important; } /* Duration */
+  table.fixed th:nth-of-type(7), table.fixed td:nth-of-type(7) { width: 5%  !important; } /* Fare Each (¥) */
+}
 </style>
 </head>
 <body>
-<h1>🚐 South Korea – Transport Guide 2025</h1>
-<details><summary>🚐 Bangkok</summary>
-<details><summary>Suvarnabhumi Airport ➔ Grande Centre Point Hotel Ratchadamri</summary>
-<table><thead><tr><th>Provider</th><th>Price (BAHT)</th><th>Price (AU)</th><th>WhatsApp</th><th>Vehicle</th><th>Notes</th></tr></thead>
-<tbody><tr><td data-label="Provider"><a href="https://www.thaitransfers.com/" target="_blank">Thai Transfer</a></td><td data-label="Price (BAHT)">900</td><td data-label="Price (AU)">42.57</td><td data-label="WhatsApp">+66 81 157 6772</td><td data-label="Vehicle">9 seater</td><td data-label="Notes">1.Sent a transfer order from the main site. 2.You can also give us a phone call. 3.We kindly ask you to make your reservation one day before planned arrival. 4.Please wait for the confirmation of your inquiry by email. 5.The driver will be waiting for you in the terminal main hall in the indicated meeting point (on the situation card) 6.Please pay the driver before departure 7.Our driver has been trained about the safety and security and is driving slowly according to international standards.</td></tr>
-</tbody></table>
-</details>
-<details><summary>Grande Centre Point Hotel Ratchadamri ➔ Don Mueang Airport</summary>
-<table><thead><tr><th>Provider</th><th>Price (BAHT)</th><th>Price (AU)</th><th>WhatsApp</th><th>Vehicle</th><th>Notes</th></tr></thead>
-<tbody><tr><td data-label="Provider"><a href="https://www.thaitransfers.com/" target="_blank">Thai Transfer</a></td><td data-label="Price (BAHT)">900</td><td data-label="Price (AU)">42.57</td><td data-label="WhatsApp">+66 81 157 6772</td><td data-label="Vehicle">9 seater</td><td data-label="Notes">Its enough to sent us one day before expected departure a reservation that you can find on our main web site. Then you only need to wait for our reply which will include a voucher confirming the service. The driver will be waiting for you at the agreed time by the reception with your name card. The provided service is quick, comfortable. On board of our vans you can enjoy selection of good music and a free Wi-Fi internet. With us you do not need to worry about the accuracy of the way taken by the driver, he will always choose the best and quickest option.</td></tr>
-</tbody></table>
-</details>
-</details>
-<details><summary>🚐 Phuket</summary>
-<details><summary>Phuket Airport ➔ Outrigger Surin Beach Resort</summary>
-<table><thead><tr><th>Provider</th><th>Price (BAHT)</th><th>Price (AU)</th><th>WhatsApp</th><th>Vehicle</th><th>Notes</th></tr></thead>
+<h1>🚆 Korea Transport Guide 2025</h1>
+<details><summary>Travel to Accommodation</summary>
+<details>
+<summary>🧳 Seoul Incheon Airport → Seoul Station</summary>
+<table class="table is-narrow is-fullwidth fixed">
+<thead>
+<tr>
+<th>Departure Date</th><th>From (Departure)</th><th>To (Destination)</th><th>Trip</th><th>Time</th><th>Fare</th><th>Ticket</th>
+</tr>
+</thead>
 <tbody>
-<tr><td data-label="Provider"><a href="https://www.klook.com/en-AU/airport-transfers/results/?flightDirection=1&amp;from=Phuket%20International%20Airport%28HKT%29&amp;to=Outrigger%20Surin%20Beach%20Resort&amp;address=121%2F1%20Moo%203,%20Srisunthorn%20Rd%20Cheng%20Talay,%20%E0%B8%95%E0%B8%B3%E0%B8%9A%E0%B8%A5%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%20%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD%E0%B8%96%E0%B8%A5%E0%B8%B2%E0%B8%87%20%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95%2083110,%20Thailand&amp;lat=8.1132002&amp;long=98.3169022&amp;poiId=&amp;poi_lat=7.9769193&amp;poi_long=98.2804206&amp;time=2025-05-19%2021%3A30&amp;pas=4&amp;code=HKT&amp;place=ChIJT2IhdsE3UDARjFymk0TnpYM&amp;ac=1&amp;kcid=7&amp;flightNo=&amp;originCode=&amp;spm=AirportTransfer_SearchResult.TopNavigation.SelectCurrency&amp;clickId=53cd5d1b6d" target="_blank">Phuket Freeday Tour</a></td><td data-label="Price (BAHT)">960</td><td data-label="Price (AU)">45.408</td><td data-label="WhatsApp">TBC</td><td data-label="Vehicle">10 seater</td><td data-label="Notes">Instant confirmation. You'll get your booking confirmation in minutes after your payment is complete Free waiting time. You will get a free waiting time of 2 hour(s) after the actual landing time. If you selected a pick-up time, you will get a free waiting time of 30 minutes. Free cancellation up to 24 hour(s) before your pick-up time. Meet &amp; greet. For airport pick up, an airport representative will be waiting at the Arrival Hall holding a Klook sign</td></tr>
-<tr><td data-label="Provider"><a href="https://www.klook.com/en-AU/airport-transfers/results/?flightDirection=1&amp;from=Phuket%20International%20Airport%28HKT%29&amp;to=Outrigger%20Surin%20Beach%20Resort&amp;address=121%2F1%20Moo%203,%20Srisunthorn%20Rd%20Cheng%20Talay,%20%E0%B8%95%E0%B8%B3%E0%B8%9A%E0%B8%A5%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%20%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD%E0%B8%96%E0%B8%A5%E0%B8%B2%E0%B8%87%20%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95%2083110,%20Thailand&amp;lat=8.1132002&amp;long=98.3169022&amp;poiId=&amp;poi_lat=7.9769193&amp;poi_long=98.2804206&amp;time=2025-05-19%2021%3A30&amp;pas=4&amp;code=HKT&amp;place=ChIJT2IhdsE3UDARjFymk0TnpYM&amp;ac=1&amp;kcid=7&amp;flightNo=&amp;originCode=&amp;spm=AirportTransfer_SearchResult.TopNavigation.SelectCurrency&amp;clickId=53cd5d1b6d" target="_blank">Phuket Rainbow International Travel Company Limited</a></td><td data-label="Price (BAHT)">978</td><td data-label="Price (AU)">46.2594</td><td data-label="WhatsApp">TBC</td><td data-label="Vehicle">10 seater</td><td data-label="Notes">You'll get your booking confirmation in minutes after your payment is complete. Free waiting time. You will get a free waiting time of 1 hour(s) 30 minutes after the actual landing time. If you selected a pick-up time, you will get a free waiting time of 30 minutes. Free cancellation up to 24 hour(s) before your pick-up time. Verified for safety. Our verified operators are required to follow strict quality standards to ensure a safe and reliable experience. Enjoy fixed-price pick-ups with trusted partners. Meet &amp; greet. Meet the operator's airport representative at the meeting point. Look out for a sign with Klook logo and the operator's name.</td></tr>
-<tr><td data-label="Provider"><a href="https://www.klook.com/en-AU/airport-transfers/results/?flightDirection=1&amp;from=Phuket%20International%20Airport%28HKT%29&amp;to=Outrigger%20Surin%20Beach%20Resort&amp;address=121%2F1%20Moo%203,%20Srisunthorn%20Rd%20Cheng%20Talay,%20%E0%B8%95%E0%B8%B3%E0%B8%9A%E0%B8%A5%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%20%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD%E0%B8%96%E0%B8%A5%E0%B8%B2%E0%B8%87%20%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95%2083110,%20Thailand&amp;lat=8.1132002&amp;long=98.3169022&amp;poiId=&amp;poi_lat=7.9769193&amp;poi_long=98.2804206&amp;time=2025-05-19%2021%3A30&amp;pas=4&amp;code=HKT&amp;place=ChIJT2IhdsE3UDARjFymk0TnpYM&amp;ac=1&amp;kcid=7&amp;flightNo=&amp;originCode=&amp;spm=AirportTransfer_SearchResult.TopNavigation.SelectCurrency&amp;clickId=53cd5d1b6d" target="_blank">I Asia (Thailand)</a></td><td data-label="Price (BAHT)">978</td><td data-label="Price (AU)">46.2594</td><td data-label="WhatsApp">TBC</td><td data-label="Vehicle">10 seater</td><td data-label="Notes">Guaranteed model: Toyota Commuter 8pax Van. The supplier will give you the exact car model you selected. Instant confirmation. You'll get your booking confirmation in minutes after your payment is complete Free waiting time. You will get a free waiting time of 2 hour(s) after the actual landing time. If you selected a pick-up time, you will get a free waiting time of 30 minutes. Free cancellation up to 12 hour(s) before your pick-up time. Verified for safety. Our verified operators are required to follow strict quality standards to ensure a safe and reliable experience. Enjoy fixed-price pick-ups with trusted partners. Meet &amp; greet. Driver will be waiting to escort you to your vehicle upon your arrival</td></tr>
-</tbody></table>
+<tr>
+<td><strong>Departure Date</strong>Mon, 08 Sep 2025</td>
+<td><strong>From (Departure)</strong>  <a href="https://maps.app.goo.gl/eA6NZFqM5F89Y6u87" target="_blank">Seoul Incheon Airport (ICN)</a></td>
+<td><strong>To (Destination)</strong>  <a href="https://maps.app.goo.gl/YFR58WmXxz1rUrdj9" target="_blank">Seoul Station</a></td><td><strong>Trip</strong><a href="https://maps.app.goo.gl/nxbR8tefWmg1z4M9A" target="_blank">Incheon &gt; Seoul Station</a></td><td><strong>Time</strong>9:12 PM - 10:27 PM (1 hr 15 min) via Train</td><td><strong>Fare</strong>₩3,000</td><td><strong>Ticket</strong>T-money Card</td>
+</tr>
+</tbody>
+</table>
 </details>
-<details><summary>Outrigger Surin Beach Resort ➔ Phuket Airport</summary>
-<table><thead><tr><th>Provider</th><th>Price (BAHT)</th><th>Price (AU)</th><th>WhatsApp</th><th>Vehicle</th><th>Notes</th></tr></thead>
+<details>
+<summary>🧳 Seoul Station → ENA Suite Hotel Namdaemun</summary>
+<table class="table is-narrow is-fullwidth fixed">
+<thead>
+<tr>
+<th>Departure Date</th><th>From (Departure)</th><th>To (Destination)</th><th>Trip</th><th>Time</th><th>Fare</th><th>Ticket</th>
+</tr>
+</thead>
 <tbody>
-<tr><td data-label="Provider"><a href="https://www.klook.com/en-AU/airport-transfers/results/?flightDirection=1&amp;from=Phuket%20International%20Airport%28HKT%29&amp;to=Outrigger%20Surin%20Beach%20Resort&amp;address=121%2F1%20Moo%203,%20Srisunthorn%20Rd%20Cheng%20Talay,%20%E0%B8%95%E0%B8%B3%E0%B8%9A%E0%B8%A5%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%20%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD%E0%B8%96%E0%B8%A5%E0%B8%B2%E0%B8%87%20%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95%2083110,%20Thailand&amp;lat=8.1132002&amp;long=98.3169022&amp;poiId=&amp;poi_lat=7.9769193&amp;poi_long=98.2804206&amp;time=2025-05-19%2021%3A30&amp;pas=4&amp;code=HKT&amp;place=ChIJT2IhdsE3UDARjFymk0TnpYM&amp;ac=1&amp;kcid=7&amp;flightNo=&amp;originCode=&amp;spm=AirportTransfer_SearchResult.TopNavigation.SelectCurrency&amp;clickId=53cd5d1b6d" target="_blank">Phuket Freeday Tour</a></td><td data-label="Price (BAHT)">960</td><td data-label="Price (AU)">45.408</td><td data-label="WhatsApp">TBC</td><td data-label="Vehicle">10 seater</td><td data-label="Notes">Instant confirmation. You'll get your booking confirmation in minutes after your payment is complete Free waiting time. You will get a free waiting time of 2 hour(s) after the actual landing time. If you selected a pick-up time, you will get a free waiting time of 30 minutes. Free cancellation up to 24 hour(s) before your pick-up time. Meet &amp; greet. For airport pick up, an airport representative will be waiting at the Arrival Hall holding a Klook sign</td></tr>
-<tr><td data-label="Provider"><a href="https://www.klook.com/en-AU/airport-transfers/results/?flightDirection=1&amp;from=Phuket%20International%20Airport%28HKT%29&amp;to=Outrigger%20Surin%20Beach%20Resort&amp;address=121%2F1%20Moo%203,%20Srisunthorn%20Rd%20Cheng%20Talay,%20%E0%B8%95%E0%B8%B3%E0%B8%9A%E0%B8%A5%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%20%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD%E0%B8%96%E0%B8%A5%E0%B8%B2%E0%B8%87%20%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95%2083110,%20Thailand&amp;lat=8.1132002&amp;long=98.3169022&amp;poiId=&amp;poi_lat=7.9769193&amp;poi_long=98.2804206&amp;time=2025-05-19%2021%3A30&amp;pas=4&amp;code=HKT&amp;place=ChIJT2IhdsE3UDARjFymk0TnpYM&amp;ac=1&amp;kcid=7&amp;flightNo=&amp;originCode=&amp;spm=AirportTransfer_SearchResult.TopNavigation.SelectCurrency&amp;clickId=53cd5d1b6d" target="_blank">Phuket Rainbow International Travel Company Limited</a></td><td data-label="Price (BAHT)">978</td><td data-label="Price (AU)">46.2594</td><td data-label="WhatsApp">TBC</td><td data-label="Vehicle">10 seater</td><td data-label="Notes">You'll get your booking confirmation in minutes after your payment is complete. Free waiting time. You will get a free waiting time of 1 hour(s) 30 minutes after the actual landing time. If you selected a pick-up time, you will get a free waiting time of 30 minutes. Free cancellation up to 24 hour(s) before your pick-up time. Verified for safety. Our verified operators are required to follow strict quality standards to ensure a safe and reliable experience. Enjoy fixed-price pick-ups with trusted partners. Meet &amp; greet. Meet the operator's airport representative at the meeting point. Look out for a sign with Klook logo and the operator's name.</td></tr>
-<tr><td data-label="Provider"><a href="https://www.klook.com/en-AU/airport-transfers/results/?flightDirection=1&amp;from=Phuket%20International%20Airport%28HKT%29&amp;to=Outrigger%20Surin%20Beach%20Resort&amp;address=121%2F1%20Moo%203,%20Srisunthorn%20Rd%20Cheng%20Talay,%20%E0%B8%95%E0%B8%B3%E0%B8%9A%E0%B8%A5%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%20%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD%E0%B8%96%E0%B8%A5%E0%B8%B2%E0%B8%87%20%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95%2083110,%20Thailand&amp;lat=8.1132002&amp;long=98.3169022&amp;poiId=&amp;poi_lat=7.9769193&amp;poi_long=98.2804206&amp;time=2025-05-19%2021%3A30&amp;pas=4&amp;code=HKT&amp;place=ChIJT2IhdsE3UDARjFymk0TnpYM&amp;ac=1&amp;kcid=7&amp;flightNo=&amp;originCode=&amp;spm=AirportTransfer_SearchResult.TopNavigation.SelectCurrency&amp;clickId=53cd5d1b6d" target="_blank">I Asia (Thailand)</a></td><td data-label="Price (BAHT)">978</td><td data-label="Price (AU)">46.2594</td><td data-label="WhatsApp">TBC</td><td data-label="Vehicle">10 seater</td><td data-label="Notes">Guaranteed model: Toyota Commuter 8pax Van. The supplier will give you the exact car model you selected. Instant confirmation. You'll get your booking confirmation in minutes after your payment is complete Free waiting time. You will get a free waiting time of 2 hour(s) after the actual landing time. If you selected a pick-up time, you will get a free waiting time of 30 minutes. Free cancellation up to 12 hour(s) before your pick-up time. Verified for safety. Our verified operators are required to follow strict quality standards to ensure a safe and reliable experience. Enjoy fixed-price pick-ups with trusted partners. Meet &amp; greet. Driver will be waiting to escort you to your vehicle upon your arrival</td></tr>
-</tbody></table>
+<tr>
+<td><strong>Departure Date</strong>Mon, 08 Sep 2025</td>
+<td><strong>From (Departure)</strong>  <a href="https://maps.app.goo.gl/YFR58WmXxz1rUrdj9" target="_blank">Seoul Station</a></td>
+<td><strong>To (Destination)</strong>  <a href="https://maps.app.goo.gl/cTvqMaPuwaQ472FZA" target="_blank">ENA Suite Hotel Namdaemun</a></td><td><strong>Trip</strong><a href="https://maps.app.goo.gl/mEP3rVUaPHcxe5Kc9" target="_blank">Seoul Station &gt; ENA Suite Hotel</a></td><td><strong>Time</strong>10:45 PM - 11:01 PM (16 min) via Bus</td><td><strong>Fare</strong>₩3,000</td><td><strong>Ticket</strong>T-money Card</td>
+</tr>
+</tbody>
+</table>
 </details>
+<details>
+<summary>🧳 ENA Suite Hotel Namdaemun → Seoul Station</summary>
+<table class="table is-narrow is-fullwidth fixed">
+<thead>
+<tr>
+<th>Departure Date</th><th>From (Departure)</th><th>To (Destination)</th><th>Trip</th><th>Time</th><th>Fare</th><th>Ticket</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Departure Date</strong>Mon, 10 Sep 2025</td>
+<td><strong>From (Departure)</strong>  <a href="https://maps.app.goo.gl/cTvqMaPuwaQ472FZA" target="_blank">ENA Suite Hotel Namdaemun</a></td>
+<td><strong>To (Destination)</strong>  <a href="https://maps.app.goo.gl/YFR58WmXxz1rUrdj9" target="_blank">Seoul Station</a></td><td><strong>Trip</strong><a href="https://maps.app.goo.gl/trsNVgK5ZHLoDkLB9">ENA Suite Hotel Namdaemun &gt; Seoul Station</a></td><td><strong>Time</strong>11:00 AM - 11:15 AM (15 min) via Train</td><td><strong>Fare</strong>₩3,000</td><td><strong>Ticket</strong>T-money Card</td>
+</tr>
+</tbody>
+</table>
 </details>
+<details>
+<summary>🧳 Busan Station → Haeundae Seacloud Hotel Residence</summary>
+<table class="table is-narrow is-fullwidth fixed">
+<thead>
+<tr>
+<th>Departure Date</th><th>From (Departure)</th><th>To (Destination)</th><th>Trip</th><th>Time</th><th>Fare</th><th>Ticket</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Departure Date</strong>Mon, 10 Sep 2025</td>
+<td><strong>From (Departure)</strong>  <a href="https://maps.app.goo.gl/2Q6qsG5kPkPRytns8" target="_blank">Busan Station</a></td>
+<td><strong>To (Destination)</strong>  <a href="https://maps.app.goo.gl/MAyiFNCLLmKv9dx17" target="_blank">Haeundae Seacloud Hotel Residence</a></td><td><strong>Trip</strong><a href="https://maps.app.goo.gl/1DsvnKDv8u32PJB68">Busan Station &gt; Haeundae Seacloud Hotel Residence</a></td><td><strong>Time</strong>3:30 PM - 4:27 PM (57 min) via Bus</td><td><strong>Fare</strong>₩2,100</td><td><strong>Ticket</strong>T-money Card</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>🧳 Haeundae Seacloud Hotel Residence → Busan Station</summary>
+<table class="table is-narrow is-fullwidth fixed">
+<thead>
+<tr>
+<th>Departure Date</th><th>From (Departure)</th><th>To (Destination)</th><th>Trip</th><th>Time</th><th>Fare</th><th>Ticket</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Departure Date</strong>Mon, 15 Sep 2025</td>
+<td><strong>From (Departure)</strong>  <a href="https://maps.app.goo.gl/MAyiFNCLLmKv9dx17" target="_blank">Haeundae Seacloud Hotel Residence</a></td>
+<td><strong>To (Destination)</strong>  <a href="https://maps.app.goo.gl/2Q6qsG5kPkPRytns8" target="_blank">Haeundae Seacloud Hotel Residence</a></td><td><strong>Trip</strong><a href="https://maps.app.goo.gl/jbuaiQyko2TV1v1w9">Haeundae Seacloud Hotel Residence &gt; Busan Station</a></td><td><strong>Time</strong>10:00 PM - 10:55 PM (55 min) via Bus</td><td><strong>Fare</strong>₩2,100</td><td><strong>Ticket</strong>T-money Card</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
 
+<summary>🧳 Koreana Hotel → Seoul Station</summary>
+<table class="table is-narrow is-fullwidth fixed">
+<thead>
+<tr>
+<th>Departure Date</th><th>From (Departure)</th><th>To (Destination)</th><th>Trip</th><th>Time</th><th>Fare</th><th>Ticket</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Departure Date</strong>Wed, 17 Sep 2025</td>
+<td><strong>From (Departure)</strong>  <a href="https://maps.app.goo.gl/c7AdYagJoEsKwJq57" target="_blank">Koreana Hotel</a></td>
+<td><strong>To (Destination)</strong>  <a href="https://maps.app.goo.gl/YFR58WmXxz1rUrdj9" target="_blank">Seoul Station</a></td><td><strong>Trip</strong><a href="https://maps.app.goo.gl/DYgrJqzXgFB4DPjN7">Koreana Hotel &gt; Seoul Station</a></td><td><strong>Time</strong>2:46 PM - 2:58 PM (12 min) via Train</td><td><strong>Fare</strong>₩3,000</td><td><strong>Ticket</strong>T-money Card</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>🧳 Seoul Station → Seoul Incheon Airport</summary>
+<table class="table is-narrow is-fullwidth fixed">
+<thead>
+<tr>
+<th>Departure Date</th><th>From (Departure)</th><th>To (Destination)</th><th>Trip</th><th>Time</th><th>Fare</th><th>Ticket</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Departure Date</strong>Wed, 17 Sep 2025</td>
+<td><strong>From (Departure)</strong>  <a href="https://maps.app.goo.gl/YFR58WmXxz1rUrdj9" target="_blank">Seoul Station</a></td>
+<td><strong>To (Destination)</strong>  <a href="https://maps.app.goo.gl/eA6NZFqM5F89Y6u87" target="_blank">Seoul Incheon Airport</a></td><td><strong>Trip</strong><a href="https://maps.app.goo.gl/nxbR8tefWmg1z4M9A" target="_blank">Seoul Station &gt; Incheon Airport</a></td><td><strong>Time</strong>4:00 PM - 5:24 PM (1 hr 14 min) via Train</td><td><strong>Fare</strong>₩3,000</td><td><strong>Ticket</strong>T-money Card</td>
+</tr>
+</tbody>
+</table>
+</details>
+	
+
+</details>
+</details><details><summary>KTX (Bullet Train)</summary><details><summary>🚄 Seoul Station → Busan Station</summary><table class="table is-narrow is-fullwidth fixed"><thead>
+<tr>
+<th>Departure Date</th>
+<th>From (Departure)</th>
+<th>To (Destination)</th>
+<th>Trip</th>
+<th>Time</th>
+<th>Fare</th>
+<th>Ticket</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Departure Date</strong>Wed, 10 Sep 2025</td>
+<td><strong>From (Departure)</strong> <a href="https://maps.app.goo.gl/YFR58WmXxz1rUrdj9" target="_blank">Seoul Station</a></td>
+<td><strong>To (Destination)</strong> <a href="https://maps.app.goo.gl/2Q6qsG5kPkPRytns8" target="_blank">Busan Station</a></td>
+<td><strong>Trip</strong><a href="https://maps.app.goo.gl/xunJgYirvgt7W39Y6" target="_blank">Seoul → Busan Station</a></td>
+<td><strong>Time</strong>12:25 PM - 3:07 PM (2 hr 42 min)</td>
+<td><strong>Fare</strong>Economy: ₩59,800 ($65), First: ₩83,700 ($92)</td>
+<td><strong>Ticket</strong><a href="https://www.korail.com/global/eng/intro" target="_blank">KTX029</a></td>
+</tr>
+</tbody></table></details><details><summary>🚄 Busan Station → Seoul Station</summary><table class="table is-narrow is-fullwidth fixed"><thead>
+<tr>
+<th>Departure Date</th>
+<th>From (Departure)</th>
+<th>To (Destination)</th>
+<th>Trip</th>
+<th>Time</th>
+<th>Fare</th>
+<th>Ticket</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Departure Date</strong>Tue, 15 Sep 2025</td>
+<td><strong>From (Departure)</strong>  <a href="https://maps.app.goo.gl/2Q6qsG5kPkPRytns8" target="_blank">Busan Station</a></td>
+<td><strong>To (Destination)</strong>  <a href="https://maps.app.goo.gl/YFR58WmXxz1rUrdj9" target="_blank">Seoul Station</a></td>
+<td><strong>Trip</strong><a href="https://maps.app.goo.gl/m88jY7Mt6oK2bP739" target="_blank">Busan → Seoul</a></td>
+<td><strong>Time</strong>12:00 PM - 2:51 PM (2 hr 51 min)</td>
+<td><strong>Fare</strong>Economy: ₩59,800 ($65), First: ₩83,700 ($92)</td>
+<td><strong>Ticket</strong><a href="https://www.korail.com/global/eng/intro" target="_blank">KTX030</a></td>
+</tr>
+</tbody></table></details></details>
 <script>
 (function() {
   function enhanceNotes() {
@@ -167,6 +400,31 @@
   }
 })();
 </script>
-
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+      try {
+        const reg = await navigator.serviceWorker.register('/SP-2025-transport/service-worker.js');
+        reg.update();
+        setInterval(() => reg.update(), 30 * 60 * 1000);
+        navigator.serviceWorker.addEventListener('message', (event) => {
+          if (event.data && event.data.type === 'NEW_VERSION_ACTIVATED') {
+            location.reload();
+          }
+        });
+      } catch (e) { console.error('SW registration failed:', e); }
+    });
+  }
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    const url = new URL(a.href, location.href);
+    const sameOrigin = url.origin === location.origin && url.pathname.startsWith('/SP-2025-transport/');
+    if (!sameOrigin && !navigator.onLine) {
+      e.preventDefault();
+      alert('You are offline. This link needs an internet connection.');
+    }
+  });
+</script>
 </body>
 </html>
